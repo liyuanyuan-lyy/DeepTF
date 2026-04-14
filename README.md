@@ -16,7 +16,7 @@ TF-Regulatory-Code/
 ├── GM12878/                                 # Example cell line (K562 mirrored)
 
 │            ├── raw_data.txt                # Encoded table: Gene  Sequence  TPM …
- 
+
 │            ├── use_data.csv                # One-hot + TF-strength model input
 
 │            ├── dataset.py                  # PyTorch Dataset
@@ -38,34 +38,34 @@ TF-Regulatory-Code/
 └── README.md                                # This file
 
 ## 3. Quick Start
-3.1 Data Preparation
+### 3.1 Data Preparation
 
-(1) Provide three BED files:
-promoters.bed  (promoter coordinates per gene)
-TSS.bed        (TSS positions with TF names)
-storm.bed/<CELL>/ directory with individual TF ChIP-seq peaks named <TF>.bed
+1.Provide three BED files:
+`promoters.bed`  (promoter coordinates per gene)
+`TSS.bed `       (TSS positions with TF names)
+`storm.bed`/<CELL>/ directory with individual TF ChIP-seq peaks named <TF>.bed
 
-(2) Run the encoding pipeline:
-python overlaps.py      # → overlaps(GM12878).csv
-python coding.py        # → raw_data.txt & tss_and_centers_sorted.txt
+2.Run the encoding pipeline:
+`python overlaps.py `      → overlaps(GM12878).csv
+`python coding.py `        → raw_data.txt & tss_and_centers_sorted.txt
 
-(3) Generate model inputs:
-cd GM12878
-python utils.py         # raw_data.txt → one-hot → use_data.csv
+3.Generate model inputs:
+`cd GM12878`
+`python utils.py `      # raw_data.txt → one-hot → use_data.csv
 
-3.2 Train Model
-python train.py
+###Train Model
+`python train.py`
 
-3.3 Extract TF-Combination Motifs
+###Extract TF Motifs
 
-cd ../TF_combination_patterns
+`cd ../TF_combination_patterns`
 python utils.py \
 python extract_motif.py \
     --model  /path/to/best_model.pth \
     --test   /path/to/test_data.csv \
     --outdir ./R-GM12878
 
-## 4. Encoding Alphabet
+## Encoding Alphabet
 | TF      | Letter | TF          | Letter |
 | ------- | ------ | ----------- | ------ |
 | TBP     | T      | CTCF        | C      |
@@ -77,7 +77,6 @@ python extract_motif.py \
 | POLR2A  | P      | TSS         | O      |
 Strand handling: sequences on the – strand are reverse-complemented.
 Fixed length: 21 bp length.
-
 
 
 
