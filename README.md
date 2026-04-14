@@ -64,19 +64,18 @@ TF-Regulatory-Code/
 
 `python utils.py `      # raw_data.txt → one-hot → use_data.csv  
 
-###Train Model
+###Train Model###  
 `python train.py`
 
-###Extract TF Motifs
+###Extract TF Motifs###  
+`cd ../TF_combination_patterns`  
+python utils.py \  
+python extract_motif.py \  
+    --model  /path/to/best_model.pth \  
+    --test   /path/to/test_data.csv \  
+    --outdir ./R-GM12878  
 
-`cd ../TF_combination_patterns`
-python utils.py \
-python extract_motif.py \
-    --model  /path/to/best_model.pth \
-    --test   /path/to/test_data.csv \
-    --outdir ./R-GM12878
-
-## Encoding Alphabet
+##Encoding Alphabet## 
 | TF      | Letter | TF          | Letter |
 | ------- | ------ | ----------- | ------ |
 | TBP     | T      | CTCF        | C      |
@@ -88,7 +87,7 @@ python extract_motif.py \
 | POLR2A  | P      | TSS         | O      |    
 
 
-Strand handling: sequences on the – strand are reverse-complemented.
+Strand handling: sequences on the – strand are reverse-complemented.  
 Fixed length: 21 bp length.
 
 
