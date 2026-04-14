@@ -40,18 +40,29 @@ TF-Regulatory-Code/
 ## 3. Quick Start
 ### 3.1 Data Preparation
 
-1.Provide three BED files:
-`promoters.bed`  (promoter coordinates per gene)
-`TSS.bed `       (TSS positions with TF names)
-`storm.bed`/<CELL>/ directory with individual TF ChIP-seq peaks named <TF>.bed
+**1.Provide three BED files:**  
 
-2.Run the encoding pipeline:
-`python overlaps.py `      → overlaps(GM12878).csv
-`python coding.py `        → raw_data.txt & tss_and_centers_sorted.txt
+`promoters.bed`   
+> promoter coordinates per genepromoter coordinates per gene
 
-3.Generate model inputs:
-`cd GM12878`
-`python utils.py `      # raw_data.txt → one-hot → use_data.csv
+`TSS.bed `       
+
+> TSS positions with TF namesTSS positions with TF names
+
+`storm.bed`  
+
+> /<CELL>/ directory with individual TF ChIP-seq peaks named <TF>.bed/<CELL>/ directory with individual TF ChIP-seq peaks named <TF>.bed
+
+**2.Run the encoding pipeline:**  
+`python overlaps.py `      → overlaps(GM12878).csv  
+
+`python coding.py `        → raw_data.txt & tss_and_centers_sorted.txt  
+
+**3.Generate model inputs:**  
+
+`cd GM12878`  
+
+`python utils.py `      # raw_data.txt → one-hot → use_data.csv  
 
 ###Train Model
 `python train.py`
@@ -74,7 +85,9 @@ python extract_motif.py \
 | BHLHE40 | B      | CEBPZ       | Z      |
 | ETS1    | E      | NFYA        | A      |
 | NFYB    | F      | NR2C2       | R      |
-| POLR2A  | P      | TSS         | O      |
+| POLR2A  | P      | TSS         | O      |    
+
+
 Strand handling: sequences on the – strand are reverse-complemented.
 Fixed length: 21 bp length.
 
