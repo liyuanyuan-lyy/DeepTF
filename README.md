@@ -64,10 +64,11 @@ TF-Regulatory-Code/
 
 `python utils.py `      # raw_data.txt → one-hot → use_data.csv  
 
-###Train Model###  
+### 3.2 Train Model  
+
 `python train.py`
 
-###Extract TF Motifs###  
+### 3.3 Extract TF Motifs  
 `cd ../TF_combination_patterns`  
 python utils.py \  
 python extract_motif.py \  
@@ -75,7 +76,7 @@ python extract_motif.py \
     --test   /path/to/test_data.csv \  
     --outdir ./R-GM12878  
 
-##Encoding Alphabet## 
+## Encoding Alphabet
 | TF      | Letter | TF          | Letter |
 | ------- | ------ | ----------- | ------ |
 | TBP     | T      | CTCF        | C      |
