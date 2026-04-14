@@ -69,9 +69,11 @@ TF-Regulatory-Code/
 `python train.py`
 
 ### 3.3 Extract TF Motifs  
-`cd ../TF_combination_patterns`  
+```python
+cd ../TF_combination_patterns  
 python utils.py \  
 python extract_motif.py \  
+```
     --model  /path/to/best_model.pth \  
     --test   /path/to/test_data.csv \  
     --outdir ./R-GM12878  
